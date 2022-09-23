@@ -1,127 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pure Web</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <style>
-        .placeholder-glow {
-            display: none;
-        }
-    </style>
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
 </head>
 
-<body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container-fluid py-3">
-        <div class="card">
-            <div class="card-header">
-                <h4>Covid 19 Countries</h1>
-            </div>
-            <div class="card-body">
-                <p>API Request Data Fetching with javascript</p>
-                <div class="placeholder-glow">
-                    <div class="placeholder rounded col-12 mb-2" style="height: 100px;"></div>
-                </div>
-                <datalist id="dataList1" class="form-control  mb-2" style="height: 100px;overflow-y:scroll;">
-                </datalist>
-                <button id="fetchBtn" class="btn btn-light" type="button" onclick="getFoodTypes()">
-                    <div id="spinner" class="spinner-border spinner-border-sm" role="status" style="display: none;">
-                    </div>
-                    <span style="display: inline;">Fetch API</span>
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <h4 class="mb-0">Covid 19 Summary</h4>
+                </a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="#">Action 1</a>
+                                <a class="dropdown-item" href="#">Action 2</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex my-2 my-lg-0">
+                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
+        </nav>
+
+    </header>
+    <main class="container pb-3" style="padding-top:70px;">
+        <h4 class="mb-3">Summary of Last Month</h4>
+        <div id="summary" class="row mb-3">
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
+            <div class="col-3"></div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <table id="counteries" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Code
+                    </th>
+                    <th>
+                        New Confirmed
+                    </th>
+                    <th>
+                        Total Confirmed
+                    </th>
+                    <th>
+                        New Deaths
+                    </th>
+                    <th>
+                        Total Deaths
+                    </th>
+
+                    <th>
+                        New Recovered
+                    </th>
+                </tr>
+            </thead>
+            <tbody style="height: 300px !important; overflow: scroll; ">
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js' integrity='sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==' crossorigin='anonymous'></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+    </script>
     <script src="lib/site.js"></script>
     <script>
-        var spinner = document.getElementById('spinner');
-        var placeholders = document.getElementsByClassName('placeholder-glow');
-        var dataList = document.getElementById('dataList1');
-        var fetchBtn = document.getElementById('fetchBtn');
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://api.covid19api.com/summary",
+                dataType: "json",
+                success: function (response) {
 
-        function getFoodTypes() {
+                    var global = response['Global'];
+                    var counteries = response['Countries'];
 
-            fetchBtn.disabled = true;
-            spinner.style.display = "inline-block";
-            dataList.style.display = "none";
-            showPlaceholder();
+                    var summary = $('div#summary').children();
+                    $(summary[0]).html(createCard('New Confirmed', global['NewConfirmed']));
+                    $(summary[1]).html(createCard('Total Confirmed', global['TotalConfirmed']));
+                    $(summary[2]).html(createCard('New Deaths', global['NewDeaths']));
+                    $(summary[3]).html(createCard('Total Recovered', global['TotalRecovered']));
 
-            setTimeout(() => {
-
-                apiGet('http://api.covid19api.com/summary').then(data => {
-                    var countries = data.Countries;
-                    countries.forEach(function (country) {
-                        var option = document.createElement('option');
-                        option.value = country.ID;
-                        option.text = country.Country
-                        dataList.appendChild(option);
+                    var table = $('table > tbody');
+                    $.each(counteries, function (key, value) {
+                        table.append(createColumn(value));
                     });
-                });
-                fetchBtn.disabled = false;
-                spinner.style.display = "none";
-                hidePlaceholder();
-                dataList.style.display = "block";
-            }, 1500);
+                }
+            });
+        });
 
+        function createCard(headerText, valueText) {
+            var card = $('<div>').addClass('card card-body');
+            card.append($('<h5>').text(headerText).addClass('text-muted text-primary'));
+            card.append($('<h1>').text(valueText));
+            card.append($('<button>').text('See details').addClass('btn btn-sm btn-light border').click(function () { console.log('Hello World') }));
+            return card;
         }
 
-        function hidePlaceholder() {
-            Array.from(placeholders).forEach((placeholder) => {
-                placeholder.style.display = "none";
-            });
-        }
-
-        function showPlaceholder() {
-            Array.from(placeholders).forEach((placeholder) => {
-                placeholder.style.display = "block";
-            });
+        function createColumn(country) {
+            var tr = $('<tr>');
+            tr.append($('<td>').html(country.Country));
+            tr.append($('<td>').html(country.CountryCode));
+            tr.append($('<td>').html(country.NewConfirmed));
+            tr.append($('<td>').html(country.TotalConfirmed));
+            tr.append($('<td>').html(country.NewDeaths));
+            tr.append($('<td>').html(country.TotalDeaths));
+            tr.append($('<td>').html(country.TotalRecovered));
+            return tr;
         }
     </script>
 </body>
